@@ -1,17 +1,32 @@
 const ignacioSvg = document.getElementById('ignacio');
 const cuadrosSvg = document.getElementById('cuadros');
+let lastScroll = 0;
+const root = document.querySelector(':root');
+rootStyle = getComputedStyle(root);
 
 window.addEventListener('scroll', () => {
-    let paddingAvailable = 22.5;
-    let toTranslate = (paddingAvailable * window.pageYOffset) / window.innerHeight;
-
-    if (toTranslate < paddingAvailable) {   
-        ignacioSvg.style.transform = `translateX(-${toTranslate}vw)`;
-        cuadrosSvg.style.transform = `translateX(${toTranslate}vw)`;
-    }
+    if (window.scrollY > lastScroll) {
+        const cuadrosSvgInfo = cuadrosSvg.getBoundingClientRect();
     
-    const widthX = getComputedStyle(document.documentElement).getPropertyValue('--widthX');
-    if(widthX !== `${50}vw`) {
-        document.documentElement.style.setProperty('--widthX', `${parseInt(widthX) - 1}vw`);
+        if ((cuadrosSvgInfo.top + cuadrosSvgInfo.height + 20) < window.innerHeight) {
+            cuadrosSvg.style.top = cuadrosSvgInfo.top + 7.5 + 'px';
+        }
+    
+        const ignacioSvgInfo = ignacioSvg.getBoundingClientRect();
+    
+        if ((ignacioSvgInfo.top > 20)) {
+            ignacioSvg.style.top = ignacioSvgInfo.top - 7.5 + 'px';
+        }
+    
+        if (window.scrollY > (window.innerHeight - 150)) {
+            document.querySelector('.presentation').classList.add('fade-out');
+        }
+
+        const actualHeight = parseInt(rootStyle.getPropertyValue('--heightX'));
+        if (actualHeight > 9) {
+            root.style.setProperty('--heightX', `${actualHeight - 1}vh`); 
+        }
+
+        lastScroll = window.scrollY;
     }
 });
