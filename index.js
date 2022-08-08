@@ -13,7 +13,9 @@ let scaleLimit = 0.5;
 let actualScale = 1;
 
 window.addEventListener('scroll', () => {
+  if (!done) {
     window.requestAnimationFrame(step);
+  }
 });
 
 function step(timestamp) {
@@ -32,16 +34,34 @@ function step(timestamp) {
         cuadrosSvg.style.transform = `translateY(${count}px)`;
         cuadrosSvg.style.transform += `scale(${actualScale})`;
 
-        if (actualScale > scaleLimit) {
-            actualScale -= 0.01;
-        }
-        if (count === limit) done = true;
+      if (count === limit) done = true;
+      
+      if (actualScale > scaleLimit && !done) {
+        actualScale -= 0.02;
+      }
+
+      if (done) {
+        initWelcome();
+      }
     }
   
-    if (elapsed < 3000) { // Stop the animation after 3 seconds
+    if (elapsed < 2000) {
       previousTimeStamp = timestamp;
       if (!done) {
         window.requestAnimationFrame(step);
       }
     }
-  }
+}
+  
+function initWelcome() {
+  document.getElementById('welcome-1').classList.add('show');
+  setTimeout(() => {
+    document.getElementById('welcome-2').classList.add('show');
+    setTimeout(() => {
+      document.getElementById('welcome-3').classList.add('show');
+      setTimeout(() => {
+        document.getElementById('welcome-4').classList.add('show');
+      }, 2000);
+    }, 2000);
+  }, 2000);
+}
