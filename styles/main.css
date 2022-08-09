@@ -33,6 +33,7 @@ body {
   right: 0;
   margin: 0 auto;
   transform-origin: top;
+  mix-blend-mode: overlay;
 }
 
 #cuadros {
@@ -42,6 +43,7 @@ body {
   right: 0;
   margin: 0 auto;
   transform-origin: bottom;
+  mix-blend-mode: overlay;
 }
 
 .presentation {
@@ -69,19 +71,12 @@ body {
   height: 100vh;
 }
 
-.double {
-  height: 200vh;
-
-}
-
 .welcome {
-  margin-left: 10vw;
   mix-blend-mode: multiply;
   display: flex;
   flex-direction: column;
-  gap: 24px;
   position: sticky;
-  top: 20vh;
+  align-items: center;
 }
 
 #welcome-1, 
@@ -89,6 +84,10 @@ body {
 #welcome-3, 
 #welcome-4 {
   display: none;
+  margin: 20px 0;
+  height: 44px;
+  width: fit-content;
+  border: 1px solid transparent;
 }
 
 #welcome-1.show, 

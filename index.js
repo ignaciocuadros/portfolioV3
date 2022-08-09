@@ -5,12 +5,16 @@ const svgInitial = ignacioSvg.getBoundingClientRect();
 ignacioSvg.style.top = `${(window.innerHeight / 2) - (parseInt(svgInitial.height) * 1.25)}px`;
 cuadrosSvg.style.bottom = `${(window.innerHeight / 2) - (parseInt(svgInitial.height) * 1.25)}px`;
 
+document.querySelector('.welcome').style.top = ignacioSvg.style.top;
+
 const svgInitialSet = ignacioSvg.getBoundingClientRect();
 
 let start, previousTimeStamp;
 let done = false;
 let scaleLimit = 0.5;
 let actualScale = 1;
+
+initWelcome();
 
 window.addEventListener('scroll', () => {
   if (!done) {
@@ -39,10 +43,6 @@ function step(timestamp) {
       if (actualScale > scaleLimit && !done) {
         actualScale -= 0.02;
       }
-
-      if (done) {
-        initWelcome();
-      }
     }
   
     if (elapsed < 2000) {
@@ -59,9 +59,6 @@ function initWelcome() {
     document.getElementById('welcome-2').classList.add('show');
     setTimeout(() => {
       document.getElementById('welcome-3').classList.add('show');
-      setTimeout(() => {
-        document.getElementById('welcome-4').classList.add('show');
-      }, 2000);
     }, 2000);
   }, 2000);
 }
