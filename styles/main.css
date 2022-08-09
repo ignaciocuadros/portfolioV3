@@ -77,22 +77,41 @@ body {
   flex-direction: column;
   position: sticky;
   align-items: center;
+  
 }
 
-#welcome-1, 
-#welcome-2, 
-#welcome-3, 
-#welcome-4 {
+.welcome img {
   display: none;
   margin: 20px 0;
-  height: 44px;
-  width: fit-content;
-  border: 1px solid transparent;
+  height: auto;
+  width: auto;
 }
 
-#welcome-1.show, 
-#welcome-2.show, 
-#welcome-3.show, 
-#welcome-4.show {
+#welcome-1 {
+  width: calc(var(--widthX) * 0.24);
+}
+
+#welcome-2 {
+  width: calc(var(--widthX) * 0.80);
+}
+
+#welcome-3 {
+  width: var(--widthX);
+}
+
+.welcome img.show, 
+.welcome img.show, 
+.welcome img.show {
   display: inline-block;
+}
+
+
+@media screen and (max-width: 768px) {
+  :root {
+    --widthX: 95vw;
+  }
+
+  .welcome img {
+    margin: 12px 0;
+  }
 }
