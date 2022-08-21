@@ -17,11 +17,32 @@ window.addEventListener("load", () => {
   initWelcome();
 });
 
-window.addEventListener('scroll', () => {
+
+document.querySelector('main').addEventListener("wheel", (evt) => {
   if (!done) {
     window.requestAnimationFrame(step);
   }
-  observer(document.querySelector('.welcome'), document.querySelector('.work'), "hide", "show");
+
+  observer(document.querySelectorAll('.work'), (entry) => {
+    if (entry.intersectionRatio > 0) {
+      document.querySelector('.welcome').classList.add("hide");
+    } else {
+      document.querySelector('.welcome').classList.replace("hide", "show");
+    }
+  });
+  
+
+  observer(document.querySelectorAll('.work'), (entry) => {
+    const imagesContainer = entry.target.children[1];
+    if (entry.intersectionRatio > 0.8 && imagesContainer.offsetWidth + imagesContainer.scrollLeft <= imagesContainer.scrollWidth) {
+      console.log('aqui')
+      document.querySelector('main').addEventListener("wheel", (evt) => evt.preventDefault());
+      imagesContainer.scrollLeft += evt.deltaY;
+    } else if (imagesContainer.offsetWidth + imagesContainer.scrollLeft > imagesContainer.scrollWidth) {
+      console.log('listo el pollo')
+      // document.querySelector('main').allowDefault = true;
+    }
+  });
 });
 
 function step(timestamp) {
@@ -88,16 +109,14 @@ function setTopToWork() {
 
 
 //Observers
-function observer(element, entries, classNameActive, classNameInactive) {
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > 0) {
-        element.classList.add(classNameActive);
-      } else {
-        element.classList.replace(classNameActive, classNameInactive);
-      }
+function observer(entries, functionToExecute) {
+  entries.forEach(entri => { 
+    const io = new IntersectionObserver(entri => {
+      entri.forEach(entry => {
+        functionToExecute(entry);
+      });
     });
-  });
-
-  io.observe(entries);
+  
+    io.observe(entri);
+  })
 }

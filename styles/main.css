@@ -14,6 +14,11 @@ body {
   animation: noise-movement 2s infinite linear;
 }
 
+/* main {
+  overflow: hidden;
+  overflow-y: auto;
+} */
+
 @keyframes noise-movement {
   0% {
     background-position: 0 0;
@@ -148,6 +153,7 @@ body {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: bolder;
   margin: 3vh 0 2vh;
+  z-index: 99;
 }
 
 .work .info {
@@ -168,17 +174,19 @@ body {
 }
 
 .product {
-  padding-top: 35vh;
+  padding-top: 5vh;
+  overflow-x: hidden;
+  display: flex;
 }
 
 .product-presentation {
   width: 100%;
+  min-width: 55vw;
   display: grid;
   grid-template: repeat(2, 25vh) / repeat(4, 25%);
   grid-gap: 8px;
-  margin: 5vh 0;
-  /* position: sticky;
-  top: 19vh; */
+  margin: 5vh 0 10vh;
+  min-width: 70%;
 }
 
 .product-presentation img {
