@@ -14,10 +14,6 @@ body {
   animation: noise-movement 2s infinite linear;
 }
 
-/* main {
-  overflow: hidden;
-  overflow-y: auto;
-} */
 
 @keyframes noise-movement {
   0% {
@@ -42,17 +38,6 @@ body {
   transition: opacity 1s linear;
 }
 
-.elementWithBackground::before {
-  position: absolute;
-  top: -10vh;
-  left: -39vw;
-  content: '';
-  width: calc(100% + 85vw);
-  height: calc(100% + 10vh + 25px);
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCI+CjxmaWx0ZXIgaWQ9Im4iIHg9IjAiIHk9IjAiPgo8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC43IiBudW1PY3RhdmVzPSIxMCIgc3RpdGNoVGlsZXM9InN0aXRjaCI+PC9mZVR1cmJ1bGVuY2U+CjwvZmlsdGVyPgo8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2ZmZiI+PC9yZWN0Pgo8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjQiPjwvcmVjdD4KPC9zdmc+");
-  animation: noise-movement 2s infinite linear;
-}
-
 #ignacio {
   width: calc(var(--widthX) * 0.82);
   position: fixed;
@@ -60,6 +45,7 @@ body {
   right: 0;
   margin: 0 auto;
   transform-origin: top;
+  mix-blend-mode: overlay;
   z-index: 5;
 }
 
@@ -127,12 +113,21 @@ body {
   display: inline-block;
 }
 
-.work {
-  padding: 5vh 15vw;
-  position: relative;
+.works {
+  position: sticky;
+  top: 0;
 }
 
-.work .subheader {
+.works .header {
+  padding: 5vh 15vw;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.works .subheader {
   width: 100%;
   display: flex;
   gap: 1vw;
@@ -145,10 +140,9 @@ body {
 .subheader hr {
   flex: 1;
   color: black;
-  background: black;
 }
 
-.work .header h2 {
+.works .header h2 {
   font-size: 2em;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: bolder;
@@ -156,7 +150,7 @@ body {
   z-index: 99;
 }
 
-.work .info {
+.works .info {
   display: grid;
   grid-template: repeat(2, 1fr) / repeat(10, 10%);
   font-size: 0.8em;
@@ -177,6 +171,8 @@ body {
   padding-top: 5vh;
   overflow-x: hidden;
   display: flex;
+  position: absolute;
+  top: 10vh;
 }
 
 .product-presentation {

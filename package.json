@@ -1,0 +1,23 @@
+{
+  "name": "portfoliov3",
+  "version": "1.0.0",
+  "description": "2022",
+  "main": "index.js",
+  "dependencies": {
+    "motion": "^10.14.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ignaciocuadros/portfolioV3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ignaciocuadros/portfolioV3/issues"
+  },
+  "homepage": "https://github.com/ignaciocuadros/portfolioV3#readme"
+}

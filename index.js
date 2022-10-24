@@ -5,45 +5,63 @@ let scaleLimit = 0.5;
 let actualScale = 1;
 
 window.addEventListener("load", () => {
+  //Set the position of IGNACIO and CUADROS
   ignacioSvg = document.getElementById('ignacio');
   cuadrosSvg = document.getElementById('cuadros');
   svgInitial = ignacioSvg.getBoundingClientRect();
   ignacioSvg.style.top = `${(window.innerHeight / 2) - (parseInt(svgInitial.height) * 1.25)}px`;
   cuadrosSvg.style.bottom = `${(window.innerHeight / 2) - (parseInt(svgInitial.height) * 1.25)}px`;
+  //Set position of the Welcome GIF
   document.querySelector('.welcome').style.top = ignacioSvg.style.top;
 
   svgInitialSet = ignacioSvg.getBoundingClientRect();
 
   initWelcome();
+  //TODO: aqui debería llamar tambien a la linea 26 para que se setee el ignacio y cuadros si ya hay scroll
+
+  setWorksSpace();
 });
 
-
+//EVENT SCROLL
 document.querySelector('main').addEventListener("wheel", (evt) => {
   if (!done) {
     window.requestAnimationFrame(step);
   }
 
-  observer(document.querySelectorAll('.work'), (entry) => {
-    if (entry.intersectionRatio > 0) {
+  //Hide or show the handwriting
+  observer(document.querySelectorAll('.welcome'), (entry) => {
+    if (entry.intersectionRatio < 1) {
       document.querySelector('.welcome').classList.add("hide");
     } else {
       document.querySelector('.welcome').classList.replace("hide", "show");
     }
   });
-  
 
-  observer(document.querySelectorAll('.work'), (entry) => {
-    const imagesContainer = entry.target.children[1];
-    if (entry.intersectionRatio > 0.8 && imagesContainer.offsetWidth + imagesContainer.scrollLeft <= imagesContainer.scrollWidth) {
-      console.log('aqui')
-      document.querySelector('main').addEventListener("wheel", (evt) => evt.preventDefault());
-      imagesContainer.scrollLeft += evt.deltaY;
-    } else if (imagesContainer.offsetWidth + imagesContainer.scrollLeft > imagesContainer.scrollWidth) {
-      console.log('listo el pollo')
-      // document.querySelector('main').allowDefault = true;
+  observer(document.querySelectorAll('.works .header'), (entry) => {
+    // console.log("observer ~ entry", entry);
+    if (entry.boundingClientRect.top <= 100) {
+      console.log("ESTOY", entry);
+      setTopToWork(entry.target);
+      //TODO: en vez de hacer que se vaya sumando el scroll horizontal que mueva el eje x para que sea mas smooth
+      // imagesContainer.scrollLeft += evt.deltaY;
+    } else {
+
     }
   });
+  
 });
+
+
+function setWorksSpace() {
+  const worksContainers = document.querySelectorAll('.works');
+  worksContainers.forEach(work => {
+    let imagesContainer = work.children[0];
+    let naturalHeight = imagesContainer.getBoundingClientRect().height;
+    if (!imagesContainer.style.height) {
+      imagesContainer.style.height = `${imagesContainer.scrollWidth + naturalHeight}px`;
+    }    
+  });
+}
 
 function step(timestamp) {
     if (start === undefined) {
@@ -72,15 +90,7 @@ function step(timestamp) {
       previousTimeStamp = timestamp;
       if (!done) {
         window.requestAnimationFrame(step);
-      } else {
-        document.getElementById('ignacio').classList.replace('overlay', 'elementWithBackground');
-        if(!topForWork) {
-          setTopToWork();
-        }
-        document.querySelectorAll('.product.hide').forEach(product => { 
-          product.classList.replace('hide', 'show');
-        })
-      } 
+      }
     }
 }
   
@@ -98,13 +108,12 @@ function addClassName(id, className) {
   document.getElementById(id).classList.add(className);
 }
 
-function setTopToWork() {
-  ignacioSvg = ignacioSvg.getBoundingClientRect();
+function setTopToWork(element) {
+  console.log("setTopToWork ~ element", element);
+  ignacioSvg = document.getElementById('ignacio').getBoundingClientRect();
   topForWork = ignacioSvg.top + ignacioSvg.height;
-  document.querySelectorAll('.work .header').forEach(work => {
-    work.style.top = `${topForWork}px`;
-    work.style.position = 'sticky';
-  });
+  // element.style.top = `${topForWork}px`;
+  // element.style.position = 'sticky';
 }
 
 
