@@ -1,4 +1,5 @@
-window.addEventListener('onload', ready);
+window.addEventListener('DOMContentLoaded', ready);
+window.onbeforeunload = () => window.scrollTo(0, 0);
 
 function ready() {
   let markHeight = document.querySelector('.mark svg').getBoundingClientRect().height;
@@ -7,16 +8,27 @@ function ready() {
   setWorksSpace();
 
   observer(document.querySelectorAll('.showroom'), entry => {
-    let lastTranslateUnit = 0;
     let initialScrollY = window.scrollY;
+    let lastTranslateUnit = 0;
+    let lastScroll = 0;
+
     document.addEventListener('scroll', event => {
       const topShowroom = parseInt(entry.target.getBoundingClientRect().top);
       const topHeader = parseInt(markHeight + (windowInnerHeigth * 0.15));
-      if (topShowroom === topHeader) {
-        lastTranslateUnit = window.scrollY - initialScrollY;
-        entry.target.style.transform = `translate3d(-${lastTranslateUnit}px, 0px, 0px)`;
+      // if (topShowroom === topHeader && lastScroll < window.scrollY) {
+        if (topShowroom === topHeader) {
+          entry.target.style.transform = `translate3d(${lastTranslateUnit}px, 0px, 0px)`;
+        lastTranslateUnit = (initialScrollY - window.scrollY).toFixed();
       }
+      // else if (lastTranslateUnit < 1) {
+      //   console.log('up')
+      //   entry.target.style.transform = `translate3d(${lastTranslateUnit}px, 0px, 0px)`;
+      //   lastTranslateUnit = (initialScrollY - window.scrollY).toFixed();
+      // }
+      lastScroll = window.scrollY;
     });
+
+
   });
 
   document.querySelectorAll('.works-header').forEach(worksHeader => {
@@ -28,11 +40,7 @@ function ready() {
     showroom.style.top = `${markHeight + (windowInnerHeigth * 0.15) }px`;
   });
 
-  if (window.scrollY) {
-    setTopLabelPixel(markHeight);
-  } else {
-    window.addEventListener("wheel", e => { setTopLabelPixel(markHeight) }, { once: true });
-  }
+  window.addEventListener("scroll", e => { setTopLabelPixel(markHeight) }, { once: true });
 }
 
 function setTopLabelPixel(markHeight) {
@@ -45,7 +53,7 @@ function setWorksSpace() {
     if (work) {
       let naturalHeight = work.getBoundingClientRect().height;
       if (!work.style.height) {
-        work.style.height = `${work.scrollWidth + naturalHeight}px`;
+        work.style.height = `${(work.scrollWidth * 1.5) + naturalHeight}px`;
       }      
     }
   });
