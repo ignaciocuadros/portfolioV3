@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', ready);
+window.addEventListener('onload', ready);
 
 function ready() {
   let markHeight = document.querySelector('.mark svg').getBoundingClientRect().height;
