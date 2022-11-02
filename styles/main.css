@@ -14,7 +14,8 @@
   font-style: normal;
 }
 
-body {
+body,
+main {
   overflow-x: hidden;
 }
 
