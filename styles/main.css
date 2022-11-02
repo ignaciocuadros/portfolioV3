@@ -81,6 +81,7 @@ body {
   mix-blend-mode: color-burn;
   margin-top: 45vh;
   position: sticky;
+  position: -webkit-sticky;
   top: 2vh;
   width: 60vw;
   height: 100vh;
@@ -119,6 +120,7 @@ body {
   align-items: center;
   gap: 15vw;
   position: sticky;
+  position: -webkit-sticky;
   top: 10vh;
   transition: transform 5ms ease-out;
   padding-left: 50%;
@@ -131,6 +133,7 @@ body {
 .works-header {
   bottom: var(--margin-y-content);
   position: sticky;
+  position: -webkit-sticky;
   top: 1vh;
   z-index: 10;
   margin-left: 62.5vw;
