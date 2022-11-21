@@ -5,8 +5,11 @@
   --dark-gray: #535557;
   --middle-gray: #6C6E70;
   --light-gray: #B5B9BD;
+  --gray-black: #3a3a3a;
   --principal-font: 'Space Grotesk', sans-serif;
   --secondary-font: 'Raleway', sans-serif;
+  --title-font-size: 22px;
+  --base-font-size: 12px;
 }
 
 * {
@@ -26,8 +29,9 @@ a {
 
 a:link,
 a:visited,
-a:hover {
-  color: var(--dark-gray);
+a:hover,
+.bottom-label {
+  color: var(--gray-black);
 }
 
 a:hover {
@@ -47,9 +51,8 @@ body {
 .bottom-label {
   position: fixed;
   left: var(--margin-x-content);
-  font-size: 12px;
+  font-size: var(--base-font-size);
   font-family: var(--principal-font);
-  color: var(--middle-gray);
 }
 
 .top-label,
@@ -73,6 +76,8 @@ body {
 
 .mark {
   fill: var(--dark-gray);
+  stroke: var(--middle-gray);
+  outline: 1px white;
   padding-left: var(--margin-x-content);
   mix-blend-mode: color-burn;
   margin-top: 45vh;
@@ -87,66 +92,70 @@ body {
   width: 30vw;
   position: absolute;
   left: 65vw;
-  top: 55vh;
+  top: 50vh;
 }
 
 .presentation img {
   width: 100%;
 }
 
-.full-container {
-  width: 100%;
-  height: 100vh;
-}
-
-.works {
-  position: relative;
+.works-header {
   padding: var(--margin-y-content) var(--margin-x-content);
   margin-bottom: var(--margin-y-content);
-}
-
-.works-header {
   position: sticky;
   z-index: 10;
-  top: 80vh;
+  top: 40vh;
   display: flex;
-  margin-bottom: 25vh;
 }
 
 .works-header h2 {
-  font-size: 1.5em;
+  font-size: var(--base-font-size);
   font-family: var(--secondary-font);
-  font-weight: normal;
-  color: var(--dark-gray);
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--gray-black);
 }
 
 .works-info {
-  margin-left: 2rem;
-  padding-top: 4px;
+  margin-left: 24px;
 }
 
 .works-info p {
-  font-size: 0.6em;
+  font-size: var(--base-font-size);
   font-family: var(--secondary-font);
   line-height: 1.4em;
-  color: var(--middle-gray);
+  color: var(--dark-gray);
   width: 60ch;
   margin-bottom: 2vh;
 }
 
-.showroom {
+.main {
+  overflow-x: hidden;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50vh;
-  margin-bottom: 50vh;
+  position: sticky;
+  top: 0;
+  z-index: 11;
 }
 
-.showroom img {
-  width: 100vw;
-  height: auto;
-  display: absolute;
-  position: inline-block;
-  top: 0;
-  left: 0;
+.main section {
+  min-width: 50vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+}
+
+.main section img {
+  max-height: 60vh;
+  max-width: 90%;
+}
+
+.thanks {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
