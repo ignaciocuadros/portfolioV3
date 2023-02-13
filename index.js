@@ -1,44 +1,51 @@
+let documentScrollTopPosition = null;
+
 window.onbeforeunload = () => window.scrollTo(0, 0);
 
-window.addEventListener(
-  "scroll",
-  (e) => {
-    let markHeight = document.querySelector(".mark svg").getBoundingClientRect().height;
-    document.querySelector(".top-label").style.top = `${markHeight + 20}px`;
-    init();
-  }, { once: true });
+window.addEventListener("scroll", e => { init() }, { once: true });
 
 function init() {
   setStickyContainersSize();
-  window.addEventListener("wheel", wheelHandler);
+  window.addEventListener("scroll", wheelHandler);
 }
 
 function setStickyContainersSize() {
   document.querySelectorAll(".sticky-container").forEach(container => {
-    const stikyContainerHeight = container.querySelector(".main").scrollWidth;
-    container.style.height = `${stikyContainerHeight}px`;
+    const stickyContainerHeight = container.querySelector(".main").scrollWidth;
+    container.style.height = `${stickyContainerHeight * .70}px`;
   })
 }
 
 function isElementInViewport(el) {
   const rect = el.getBoundingClientRect();
-  console.log("isElementInViewport ~ rect", rect);
   return rect.top <= 0 && rect.bottom > document.documentElement.clientHeight;
 }
 
 function wheelHandler(event) {
+  //TITLE MARK EFFECT
+  if (document.querySelector('.presentation').getBoundingClientRect().top > -100) {
+    document.querySelector('.mark').classList.add('blur');
+  } else {
+    document.querySelector('.mark').classList.remove('blur');
+  }
+
+  //IMAGE CARROUSEL
   const containerInViewPort = Array.from(document.querySelectorAll(".sticky-container")).filter(container => isElementInViewport(container))[0];
 
   if (!containerInViewPort) {
+    documentScrollTopPosition = null;
     return;
   }
 
   const isPlaceHolderBelowTop = containerInViewPort.offsetTop < document.documentElement.scrollTop;
   const isPlaceHolderBelowBottom =
-    containerInViewPort.offsetTop + containerInViewPort.offsetHeight >
-    document.documentElement.scrollTop;
+  containerInViewPort.offsetTop + containerInViewPort.offsetHeight >
+  document.documentElement.scrollTop;
 
   if (isPlaceHolderBelowTop && isPlaceHolderBelowBottom) {
-    containerInViewPort.querySelector(".main").scrollLeft += event.deltaY;
+    if (!documentScrollTopPosition) {
+      documentScrollTopPosition = document.documentElement.scrollTop;
+    }
+    containerInViewPort.querySelector(".main").scrollLeft =  document.documentElement.scrollTop - documentScrollTopPosition;
   }
 }
