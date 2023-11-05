@@ -19,10 +19,6 @@
   font-style: normal;
 }
 
-body {
-  overflow-x: hidden;
-}
-
 a {
   text-decoration: none;
 }
@@ -39,7 +35,9 @@ a:hover {
 }
 
 body {
+  overflow-x: hidden;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCI+CjxmaWx0ZXIgaWQ9Im4iIHg9IjAiIHk9IjAiPgo8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC43IiBudW1PY3RhdmVzPSIxMCIgc3RpdGNoVGlsZXM9InN0aXRjaCI+PC9mZVR1cmJ1bGVuY2U+CjwvZmlsdGVyPgo8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2ZmZiI+PC9yZWN0Pgo8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjQiPjwvcmVjdD4KPC9zdmc+");
+  background-attachment: fixed;
 }
 
 .together {
@@ -56,7 +54,7 @@ body {
 
 .bottom-label,
 .mark {
-  z-index: 10;
+  z-index: 12;
 }
 
 .top-label {
@@ -82,7 +80,7 @@ body {
   position: sticky;
   top: 2vh;
   width: 45vw;
-  height: 110vh;
+  height: 55vh;
   filter: blur(0);
   transition: filter ease-in-out 1s;
 }
@@ -108,9 +106,6 @@ body {
   position: sticky;
   z-index: 10;
   top: 0;
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
 }
 
 .works-header h2 {
@@ -119,7 +114,6 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   color: var(--gray-black);
-  line-height: 3.5;
 }
 
 .works-info p {
@@ -131,9 +125,18 @@ body {
   margin-bottom: 2vh;
 }
 
+.main-project-image {
+  position: absolute;
+  top: -20vh;
+  height: 140vh;
+  right: -10vw;
+  filter: grayscale(1) opacity(0.5);
+}
+
 .sticky-container {
   margin-bottom: 25vh;
 }
+
 
 .main {
   overflow-x: hidden;
@@ -141,40 +144,277 @@ body {
   position: sticky;
   top: 0;
   z-index: 11;
+  gap: 2vw;
+  padding-left: 100vw;
 }
-
 .main section {
-  min-width: 50vw;
-  min-height: 100vh;
+  /* min-width: 90vw; */
+  /* min-height: 100vh; */
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 5vw;
+  /* gap: 5vw; */
+}
+.main p {
+  font-size: var(--base-font-size);
+  font-family: var(--secondary-font);
+  line-height: 1.4em;
+  color: var(--dark-gray);
+  text-align: right;
 }
 
-.main section img {
-  max-height: 60vh;
+.flex {
+  display: flex;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  border: 1.5px solid rgba(209, 213, 219, 0.3);
+}
+
+.half-height {
+  height: 48%;
+  max-height: 48%;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.first,
+.second,
+.third,
+.four,
+#fast .zero,
+#deals .zero,
+#deals .first,
+#solem .zero,
+#solem .first {
+  margin: 13vh 0;
+  height: 76vh;
+}
+
+#fast .zero,
+#deals .first,
+#solem .zero,
+#solem .first {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 60vw;
+}
+
+#solem .zero,
+#deals .first {
+  min-width: 45vw;
+}
+
+#fast .zero .up,
+#deals .first .mock {
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+}
+#fast .logo {
+  width: 35%;
+  min-width: 35%;
+}
+#fast .logo img {
+  max-height: 90%;
+  max-width: 40%;
+  filter: none;
+}
+#fast .mock {
+  width: 100%;
+  justify-content: space-evenly;
+}
+#fast .mock img  {
+  max-height: 90%;
+  max-width: 25%;
+  filter: opacity(0.5);
+}
+
+#fast .zero .down,
+#deals .first .mock  {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#fast .down img  {
+  max-height: 90%;
+}
+
+#fast .first {
+  min-width: 45vw;
+}
+#fast .first img {
+  max-height: 90%;
+  top: 5%;
+  right: 5%;
+}
+
+#deals .zero {
+  position: relative;
+  min-width: 65vw;
+  align-items: flex-start;
+}
+#deals .zero img {
+  max-height: 90%;
+}
+#deals .zero .back {
+  max-width: 45%;
+  margin: auto;
+  filter: grayscale(1);
+  border-radius: 2px;
+  border: 1.5px solid rgba(209, 213, 219, 0.3);
+}
+#deals .zero .front {
+  max-width: 45%;
+  margin: auto;
+  box-shadow: -5px 5px 4px rgba(209, 213, 219, 0.3);
+  border-radius: 2px;
+  border: 1.5px solid rgba(209, 213, 219, 0.3);
+}
+#deals .first .mock {
+  overflow: hidden;
+  position: relative;
+  background-image: url('../images/omnia-deals/after-detail.png');
+  background-size: auto;
+  background-position: center center;
+  background-clip: content-box;
+  box-shadow: inset 0 0 20px 13px rgba(255, 255, 255, 0.9);
+}
+#deals .first .detail {
+  overflow: hidden;
+  position: relative;
+  background-image: url('../images/omnia-deals/mockup-modal-laptop.png');
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+#solem .zero .up {
+  display: flex;
+  width: 100%;
+}
+#solem .zero .up img {
+  max-height: 90%;
+  max-width: 60%;
+  margin: auto;
+}
+#solem .zero .down {
+  width: 100%;
+  overflow: hidden;
+}
+#solem .zero .down img {
+  height: 190%;
+  margin: auto;
+  margin-top: 5%;
+  display: inline-block;
+}
+#solem .first video {
+  width: 80%;
+  margin: auto;
+}
+
+
+.main .first {
+  min-width: 35vw;
+  overflow-y: hidden;
+  position: relative;
+  backdrop-filter: invert(1);
+}
+.main .first img {
+  position: absolute;
+  top: 25%;
   max-width: 90%;
 }
 
-.main section:first-child {
-  min-width: 100vw;
+
+.main .second,
+.main .four {
+  min-width: 45vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.main .second .box {
+  height: 48%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+.main .second img,
+.main .four img {
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
 }
 
-.main section:last-child {
-  min-width: 100vw;
+.main .four img {
+  max-height: 40%;
+  box-shadow: 1px 1px 8px #7474744f;
+  border-radius: 5px;
 }
+
+.polka {
+  background-image: 
+    radial-gradient(rgb(199, 199, 199) 5%, transparent 10%);
+  background-position: 4px 4px;
+  background-size: 8px 8px;
+}
+.polka.filter img {
+  filter: opacity(0.8);
+}
+
+
+#doctor .third {
+  min-width: 25vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: relative;
+}
+.main .third div {
+  height: 48%;
+  width: 100%;
+}
+.main .third video {
+  max-height: 60%;
+  margin: auto;
+}
+
 
 .thanks {
-  height: 40vh;
+  height: 100vh;
   width: 100%;
   padding: var(--margin-y-content) var(--margin-x-content);
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCI+CjxmaWx0ZXIgaWQ9Im4iIHg9IjAiIHk9IjAiPgo8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC43IiBudW1PY3RhdmVzPSIxMCIgc3RpdGNoVGlsZXM9InN0aXRjaCI+PC9mZVR1cmJ1bGVuY2U+CjwvZmlsdGVyPgo8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2ZmZiI+PC9yZWN0Pgo8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjQiPjwvcmVjdD4KPC9zdmc+");
 }
-
 .thanks .top {
   position: sticky;
-  right: 0;
-  top: 45%;
-  margin-left: auto;
+  left: 0;
+  top: 10vh;
+  margin-right: auto;
   display: block;
+}
+
+@keyframes hideElement {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.hide {
+  animation: hideElement 500ms ease-in forwards;
 }
