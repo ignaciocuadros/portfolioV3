@@ -11,6 +11,7 @@
     />
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/mobile.css" media="(max-width: 768px)">
     <script src="index.js" defer async></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,7 +35,6 @@
         </svg>
       </div>
       <div class="presentation">
-        <!-- TODO: agregar alt -->
         <img src="./images/presentation.png" alt="" />
       </div>
       <address class="bottom-label">
@@ -74,8 +74,8 @@
               </video>
             </section>
             <section class="four card">
-                <img src="./images/omnia-phr/mockup-login-desktop.png" alt="">
-                <img src="./images/omnia-phr/mockup-desktop.png" alt="">
+                <img class="desktop-img" src="./images/omnia-phr/mockup-login-desktop.png" alt="">
+                <img class="desktop-img" src="./images/omnia-phr/mockup-desktop.png" alt="">
             </section>
             <section style="min-width: 150vw;"></section>
           </section>
@@ -134,11 +134,11 @@
           <section class="main">
             <section class="zero card polka">
               <img src="./images/omnia-deals/before.png" class="back" />
-              <img src="./images/omnia-deals/after.png" class="front"/>
+              <img src="./images/omnia-deals/after.png" class="front desktop-img"/>
             </section>
             <section class="first">
-              <div class="detail card half-height"></div>
-              <div class="mock card half-height"></div>
+              <div class="detail card two-third-height"></div>
+              <div class="mock card one-third-height"></div>
             </section>
             <section style="min-width: 150vw;"></section>
           </section>
@@ -177,15 +177,15 @@
           </div>
           <section class="main">
             <section class="zero">
-              <div class="up half-height card polka logo">
+              <div class="up one-third-height card polka logo">
                 <img src="./images/solem/logo-comparation-01.png" />
               </div>
-              <div class="down card flex half-height">
+              <div class="down card flex two-third-height">
                 <img src="./images/solem/mockup-mobile.png" />
               </div>
             </section>
             <section class="first card">
-              <video autoplay loop disablepictureinpicture muted playsinline>
+              <video class="desktop-img" autoplay loop disablepictureinpicture muted playsinline>
                 <source src="./images/solem/live-mockup.webm">
               </video>
             </section>

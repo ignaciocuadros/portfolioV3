@@ -1,0 +1,18 @@
+.presentation {
+    width: 90%;
+    transform: rotate(-20deg);
+    left: 5%;
+}
+
+.mark {
+    width: 95%;
+    left: 2.5%;
+    height: 48vh;
+}
+
+.top-label, 
+.bottom-label {
+    width: 100%;
+    text-align: center;
+    left: 0;
+}

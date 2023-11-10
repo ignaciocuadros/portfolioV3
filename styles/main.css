@@ -177,6 +177,19 @@ body {
   height: 48%;
   max-height: 48%;
 }
+.one-third-height {
+  height: 38%;
+  max-height: 38%;
+}
+.two-third-height {
+  height: 58%;
+  max-height: 58%;
+}
+
+.desktop-img {
+  box-shadow: 1px 1px 8px #7474744f;
+  border-radius: 5px;
+}
 
 .space-between {
   justify-content: space-between;
@@ -242,6 +255,11 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
+#fast .down  {
+  max-height: 90%;
+  background: #2d2d2d;
+  border: 1px solid #2d2d2d;
+}
 #fast .down img  {
   max-height: 90%;
 }
@@ -250,9 +268,9 @@ body {
   min-width: 45vw;
 }
 #fast .first img {
-  max-height: 90%;
-  top: 5%;
-  right: 5%;
+  max-height: 140%;
+  top: 20%;
+  left: -9%;
 }
 
 #deals .zero {
@@ -273,9 +291,6 @@ body {
 #deals .zero .front {
   max-width: 45%;
   margin: auto;
-  box-shadow: -5px 5px 4px rgba(209, 213, 219, 0.3);
-  border-radius: 2px;
-  border: 1.5px solid rgba(209, 213, 219, 0.3);
 }
 #deals .first .mock {
   overflow: hidden;
@@ -301,7 +316,7 @@ body {
   width: 100%;
 }
 #solem .zero .up img {
-  max-height: 90%;
+  max-height: 50%;
   max-width: 60%;
   margin: auto;
 }
@@ -359,8 +374,6 @@ body {
 
 .main .four img {
   max-height: 40%;
-  box-shadow: 1px 1px 8px #7474744f;
-  border-radius: 5px;
 }
 
 .polka {
@@ -373,6 +386,9 @@ body {
   filter: opacity(0.8);
 }
 
+#doctor .polka {
+  background-image: radial-gradient(#7B84DB 5%, transparent 7%);
+}
 
 #doctor .third {
   min-width: 25vw;
@@ -381,11 +397,17 @@ body {
   flex-direction: column;
   position: relative;
 }
+#doctor .first {
+  background: #f2f3fb;
+  border: 1px solid #f2f3fb;
+}
+
 .main .third div {
   height: 48%;
   width: 100%;
 }
 .main .third video {
+  mix-blend-mode: multiply;
   max-height: 60%;
   margin: auto;
 }
