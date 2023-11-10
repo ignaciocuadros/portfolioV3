@@ -19,11 +19,23 @@
 
 a {
     text-decoration: initial;
-}
+}   
 
 .top-label, 
 .bottom-label {
     width: 100%;
     text-align: center;
     left: 0;
+}
+
+.thanks .top {
+    margin-left: auto;
+    top: 12vh;
+    width: 35vw;
+    height: auto;
+}
+
+.thanks .down {
+    display: block;
+    margin: 25vh auto;
 }
