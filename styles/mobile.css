@@ -1,3 +1,8 @@
+:root {
+    --title-font-size: 22px;
+    --base-font-size: 10px;
+}
+
 .presentation {
     width: 90%;
     transform: rotate(-20deg);
@@ -7,7 +12,13 @@
 .mark {
     width: 95%;
     left: 2.5%;
+    right: 2.5%;
     height: 48vh;
+    padding-left: 0;
+}
+
+a {
+    text-decoration: initial;
 }
 
 .top-label, 
