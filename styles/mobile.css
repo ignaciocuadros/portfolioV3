@@ -54,8 +54,41 @@ a {
     height: 78vh;
 }
 
-.main .second, 
-.main .four {
+#fast .zero {
+    min-width: 200vw;
+}
+
+#fast .first,
+#solem .zero,
+#deals .first, 
+#solem .first,
+.main .four  {
+    min-width: 100vw;
+}
+
+.main,
+#fast .zero .up, 
+#deals .first .mock {
+    gap: 7vw;
+}
+
+#solem .first video {
+    width: 95%;
+}
+
+#deals .zero {
+    min-width: 100vw;
+    flex-direction: column;
+}
+
+.main .four img,
+#deals .zero .back,
+#deals .zero .front {
+    max-width: 90%;
+    max-height: 45%;
+}
+
+.main .second {
     min-width: 150vw;
 } 
 
