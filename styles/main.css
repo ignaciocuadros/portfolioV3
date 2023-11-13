@@ -40,6 +40,10 @@ body {
   background-attachment: fixed;
 }
 
+.empty-space-box {
+  min-width: 150vw;
+}
+
 .together {
   display: flex;
   gap: var(--margin-x-content);

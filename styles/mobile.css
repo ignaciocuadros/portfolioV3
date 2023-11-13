@@ -3,6 +3,10 @@
     --base-font-size: 10px;
 }
 
+.empty-space-box {
+    min-width: 220vh;
+}
+
 .presentation {
     width: 90%;
     transform: rotate(-20deg);
@@ -28,6 +32,33 @@ a {
     left: 0;
 }
 
+.works-header {
+    padding-top: 8vh;
+}
+
+.main .first,
+#doctor .third {
+    min-width: 80vw;
+}
+
+.first, 
+.second, 
+.third, 
+.four, 
+#fast .zero, 
+#deals .zero, 
+#deals .first, 
+#solem .zero, 
+#solem .first {
+    margin: 11vh 0;
+    height: 78vh;
+}
+
+.main .second, 
+.main .four {
+    min-width: 150vw;
+} 
+
 .thanks .top {
     margin-left: auto;
     top: 12vh;
@@ -37,5 +68,5 @@ a {
 
 .thanks .down {
     display: block;
-    margin: 25vh auto;
+    margin: 30vh auto;
 }
