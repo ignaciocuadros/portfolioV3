@@ -266,6 +266,7 @@ body {
 }
 #fast .down img  {
   max-height: 90%;
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 #fast .first {
@@ -402,7 +403,7 @@ body {
   position: relative;
 }
 #doctor .first {
-  background: #e3e5f7;
+  background: #f2f3fb;
   border: 1px solid #f2f3fb;
 }
 

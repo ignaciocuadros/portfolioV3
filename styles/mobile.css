@@ -72,6 +72,23 @@ a {
     gap: 7vw;
 }
 
+.main .third video {
+    max-height: 85%;
+    max-width: 90%;
+}
+
+.main .four img {
+    max-width: 140%;
+}
+
+.main .four img:first-child {
+    margin-left: -50%;
+}
+
+.main .four img:last-child {
+    margin-left: 25%;
+}
+
 #solem .first video {
     width: 95%;
 }
@@ -81,7 +98,6 @@ a {
     flex-direction: column;
 }
 
-.main .four img,
 #deals .zero .back,
 #deals .zero .front {
     max-width: 90%;
