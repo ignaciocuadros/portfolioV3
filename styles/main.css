@@ -177,6 +177,10 @@ body {
   border: 1.5px solid rgba(209, 213, 219, 0.3);
 }
 
+.darken-filter {
+  mix-blend-mode: darken;
+}
+
 .half-height {
   height: 48%;
   max-height: 48%;
@@ -277,6 +281,13 @@ body {
   top: 20%;
   left: -9%;
 }
+#fast .first .handwrite {
+  bottom: 4%;
+  max-width: 35%;
+  right: auto;
+  top: auto;
+  left: 60%;
+}
 
 #deals .zero {
   position: relative;
@@ -284,18 +295,16 @@ body {
   align-items: flex-start;
 }
 #deals .zero img {
-  max-height: 90%;
+  height: fit-content;
 }
 #deals .zero .back {
-  max-width: 45%;
-  margin: auto;
+  max-width: 100%;
   filter: grayscale(1);
   border-radius: 2px;
   border: 1.5px solid rgba(209, 213, 219, 0.3);
 }
 #deals .zero .front {
-  max-width: 45%;
-  margin: auto;
+  max-width: 100%;
 }
 #deals .first .mock {
   overflow: hidden;
@@ -314,6 +323,41 @@ body {
   background-position: center center;
   width: 100%;
   background-repeat: no-repeat;
+}
+
+#deals .zero .first-img,
+#deals .zero .second-img {
+  max-width: 45%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+#deals .zero .second-img {
+  flex-direction: column;
+  justify-content: center;
+}
+
+#deals .zero .second-img .handwrite:first-child {
+  max-width: 70%;
+  margin-bottom: 50px;
+}
+
+#deals .actual {
+  max-width: 65px;
+  align-self: flex-end;
+  margin-top: 10px;
+}
+
+#deals .first-img::after {
+  background: url(../images/omnia-deals/handwrite01.png) 0 0 no-repeat;
+  background-size: contain;
+  bottom: 28px;
+  right: 0;
+}
+
+#deals .zero .first-img {
+  align-items: center;
 }
 
 #solem .zero .up {
@@ -373,15 +417,62 @@ body {
   position: relative;
   display: flex;
 }
-.main .second img,
-.main .four img {
+.main .second img {
   max-width: 90%;
   max-height: 90%;
   margin: auto;
 }
 
+.main .four {
+  justify-content: space-around;
+}
+
+.main .four .first-img,
+.main .four .second-img {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  max-height: 42%;
+  display: flex;
+}
+
+.main .four .first-img img {
+  margin-left: 0;
+}
+.main .four .second-img img {
+  margin-right: 0;
+}
+
 .main .four img {
-  max-height: 40%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+}
+
+#doctor .four .first-img::after,
+#doctor .four .second-img::before,
+#deals .first-img::after {
+  content: "";
+  width: 70px;
+  height: 23px;
+  mix-blend-mode: darken;
+  position: absolute;
+  filter: opacity(0.8);
+}
+
+#doctor .four .first-img::after {
+  background: url(../images/omnia-phr/handwrite02.png) 0 0 no-repeat;
+  background-size: contain;
+  bottom: -28px;
+  left: 0;
+}
+
+#doctor .four .second-img::before {
+  background: url(../images/omnia-phr/handwrite03.png) 0 0 no-repeat;
+  width: 60px;
+  background-size: contain;
+  top: -28px;
+  right: 10px;
 }
 
 .polka {
@@ -392,6 +483,21 @@ body {
 }
 .polka.filter img {
   filter: opacity(0.8);
+}
+
+.handwrite {
+  filter: opacity(0.8);
+}
+
+#doctor .first .handwrite {
+  top: 8%;
+  width: 200px;
+}
+
+#doctor .third .handwrite {
+  bottom: 13%;
+  width: 80px;
+  position: absolute;
 }
 
 #doctor .polka {
@@ -420,6 +526,15 @@ body {
   margin: auto;
 }
 
+#solem .main .first img {
+  position: absolute;
+  bottom: 8%;
+  left: 10%;
+  max-width: 36%;
+  filter: invert(1);
+  mix-blend-mode: color-dodge;
+  top: auto;
+}
 
 .thanks {
   height: 100vh;
