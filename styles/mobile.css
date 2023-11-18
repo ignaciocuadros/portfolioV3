@@ -95,13 +95,47 @@ a {
 
 #deals .zero {
     min-width: 100vw;
-    flex-direction: column;
+    flex-direction: column-reverse;
 }
 
-#deals .zero .back,
+#deals .zero .first-img, #deals .zero .second-img {
+    max-width: 100%;
+    overflow: hidden;
+    align-items: center;
+    max-height: 100%;
+}
+
+#deals .zero .second-img .handwrite:first-child {
+    max-width: 50%;
+    margin: 20px 0 10px 0;
+}
+
+#deals .zero .back, #deals .zero .front {
+    max-width: 85%;
+    max-height: fit-content;
+}
+
 #deals .zero .front {
-    max-width: 90%;
-    max-height: 45%;
+    height: 65%;
+}
+
+#deals .first-img::after {
+    right: 12px;
+    width: 55px;
+}
+
+#deals .zero .back {
+    height: 95%;
+}
+
+#deals .zero .first-img {
+    width: 100%;
+    justify-content: center;
+}
+
+#deals .actual {
+    max-width: 50px;
+    margin-right: 14px;
 }
 
 .main .second {
@@ -118,4 +152,22 @@ a {
 .thanks .down {
     display: block;
     margin: 30vh auto;
+}
+
+#doctor .third .handwrite {
+    bottom: 3%;
+}
+
+.main .four .first-img img:first-child {
+    margin-left: 0;
+}
+
+#fast .first .handwrite {
+    top: 4%;
+    left: 4%;
+    max-width: 40%;
+}
+
+#solem .main .first img {
+    max-width: 75%;
 }
