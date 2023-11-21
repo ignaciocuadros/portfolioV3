@@ -262,6 +262,10 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  overflow: hidden;
+}
+#fast .zero .down {
+  gap: 16px;
 }
 #fast .down  {
   max-height: 90%;

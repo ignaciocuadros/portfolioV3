@@ -1,0 +1,67 @@
+:root {
+    --base-font-size: 18px;
+}
+
+.empty-space-box {
+    min-width: 250vw;
+}
+
+.presentation {
+    min-width: 70vw;
+}
+
+.mark {
+    width: 70vw;
+}
+
+.main .first,
+#doctor .third {
+    min-width: 54vw;
+}
+
+.main .second, 
+.main .four,
+#fast .first {
+    min-width: 90vw;
+}
+
+#fast .zero, 
+#deals .first, 
+#solem .zero, 
+#solem .first {
+    min-width: 115vw;
+}
+
+#fast .first .handwrite {
+    bottom: auto;
+    max-width: 28%;
+    top: 6%;
+    left: 5%;
+}
+
+#deals .zero {
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+#deals .zero .first-img, 
+#deals .zero .second-img {
+    max-height: 46%;
+    max-width: 90%;
+    overflow: hidden;
+    align-items: center;
+}
+
+#deals .zero .second-img .handwrite:first-child {
+    max-width: 50%;
+    margin-bottom: 12px;
+}
+
+#deals .zero .second-img .front {
+    height: 70%;
+    width: min-content;
+}
+
+#deals .zero .first-img img {
+    height: 100%;
+}
