@@ -34,20 +34,11 @@ function wheelHandler(event) {
   let idInView = null;
   const containerInViewPort = Array.from(document.querySelectorAll(".sticky-container")).filter(container => {
     const isInViewPort = isElementInViewport(container);
-    const elementInViewMain = container.querySelector('.main');
-    if(isInViewPort) {
-      idInView = container.id;
-      elementInViewMain.classList.add('show');
-      elementInViewMain.classList.remove('hide');
-    } else {
-      elementInViewMain.classList.replace('show', 'hide');
-    }
+    if(isInViewPort) idInView = container.id;
     return isInViewPort;
   })[0];
 
-  if (!containerInViewPort) {
-    return;
-  } 
+  if (!containerInViewPort) return;
 
   const isPlaceHolderBelowTop = containerInViewPort.offsetTop < document.documentElement.scrollTop;
   const isPlaceHolderBelowBottom = (containerInViewPort.offsetTop + containerInViewPort.offsetHeight) > document.documentElement.scrollTop;

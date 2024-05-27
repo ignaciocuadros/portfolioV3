@@ -94,30 +94,14 @@ body {
 }
 
 .presentation {
-  width: 38vw;
+  width: 50vw;
   position: absolute;
   left: 2vw;
-  top: 40vh;
+  top: 38vh;
 }
 
 .presentation img {
   width: 100%;
-}
-
-.works-header {
-  padding: 10vh 0 var(--margin-x-content) var(--margin-x-content);
-  margin-bottom: var(--margin-y-content);
-  position: sticky;
-  z-index: 10;
-  top: 0;
-}
-
-.works-header h2 {
-  font-size: var(--base-font-size);
-  font-family: var(--secondary-font);
-  text-transform: uppercase;
-  font-weight: bold;
-  color: var(--gray-black);
 }
 
 .works-info p {
@@ -149,15 +133,12 @@ body {
   top: 0;
   z-index: 11;
   gap: 2vw;
-  padding-left: 100vw;
+  padding-left: 2vw;
 }
 .main section {
-  /* min-width: 90vw; */
-  /* min-height: 100vh; */
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* gap: 5vw; */
 }
 .main p {
   font-size: var(--base-font-size);
